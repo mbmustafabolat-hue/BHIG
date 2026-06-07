@@ -1,0 +1,444 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{caption}
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\newcommand{\BHIG}{B-HIG}
+\newcommand{\Wstar}{W^{\ast}}
+\newcommand{\Ephys}{E_{\mathrm{phys}}}
+\newcommand{\Etot}{\mathfrak{E}_{\mathrm{B\text{-}HIG}}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\dd}{\mathrm{d}}
+
+\title{Bolat State--Relation Geometrodynamics (B-HIG):\\
+A Finite Relational-Matrix Framework for Internal-Time Geometry}
+\author{Mustafa Bolat\\
+\small Independent research framework\\
+\small Repository: \url{https://github.com/mbmustafabolat-hue/BHIG}\\
+\small DOI archive: \url{https://doi.org/10.5281/zenodo.20582146}}
+\date{Draft prepared for arXiv-style technical circulation, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Bolat State--Relation Geometrodynamics (\BHIG) is presented as a theoretical and computational research framework, not as an established physical theory. Its central hypothesis is that the operationally observed physical universe may be modeled as an internal-time projection of a stable relation matrix among primitive states. The basic expression is
+\[
+\boxed{\Ephys=P_{\tau}(\Wstar)} ,
+\]
+where $\Wstar$ denotes a stable state--relation matrix and $P_{\tau}$ denotes conditioning/projection with respect to an internal clock sector. In this draft, the framework is formulated in a restricted finite setting: a state set, a weighted relation matrix, graph-Laplacian energy, internal-time conditioning, a candidate selection functional, and several model-level consistency targets. The finite model is designed to test whether effective dimension, inverse-square behavior in a three-dimensional limit, photon polarization counting, and a minimal three-family phase sector can be represented within a common relational formalism. The paper distinguishes between (i) definitions internal to the model, (ii) results obtained only within a closed candidate class, and (iii) open derivations required before any claim of physical equivalence to relativity, quantum field theory, or the Standard Model could be made. The work is intended as a controlled technical formulation of a relational spacetime research program.
+\end{abstract}
+
+\noindent\textbf{Keywords:} relational spacetime, internal time, emergent geometry, graph Laplacian, state--relation matrix, spectral dimension, finite computational model, family phase, B-HIG.
+
+\section{Scientific status and scope}
+This paper deliberately uses restrained language. \BHIG{} is not claimed here to be a verified physical theory. It is formulated as a finite, inspectable, and computationally extendable framework for studying the idea that spacetime, mass, and particle-family structure may be emergent appearances of a more primitive relation network. The immediate goal is not to replace general relativity or quantum field theory, but to define a mathematical object that can be tested against known limiting structures.
+
+The proposal is motivated by three broad lines of thought. First, internal-time approaches such as the Page--Wootters mechanism show that time may be treated as a correlation between a clock subsystem and the rest of the universe rather than as a fundamental external parameter \cite{PageWootters1983}. Second, causal set theory and related discrete approaches investigate the possibility that spacetime geometry may arise from more primitive relational or causal order data \cite{Bombelli1987,Rovelli2004}. Third, graph Laplacians and lattice methods provide well-defined finite operators from which spectra, propagation, and continuum limits can be studied \cite{Wilson1974,GinspargWilson1982,NielsenNinomiya1981}.
+
+The arXiv-suitable version of the paper therefore separates philosophical motivation from technical content. Metaphysical extensions, including consciousness-related interpretations, are not used as evidence for the physical model and are not part of the testable core.
+
+\section{Relational becoming as background interpretation}
+The philosophical background of \BHIG{} may be called a relational-becoming interpretation: events, relations, and transformations are treated as ontologically prior to objects moving in a pre-existing spacetime. In this interpretation, space, time, matter, and energy are stable appearances of relational processes. This view is used only as motivation. The technical model begins when the primitive relation structure is written as a state set and a weighted matrix.
+
+Let
+\[
+\mathcal{S}=\{s_1,s_2,\ldots,s_N\}
+\]
+be a finite state set, and let
+\[
+W=(W_{ij})_{i,j=1}^{N}, \qquad W_{ij}\geq 0,
+\]
+be a weighted relation matrix. In the simplest symmetric model $W_{ij}=W_{ji}$, but directed or complex Hermitian generalizations are possible. The interpretation is that states do not acquire physical meaning solely as isolated labels; they acquire operational structure through their relation weights.
+
+\section{Core principle}
+The core expression of the framework is
+\begin{equation}
+\boxed{\Ephys=P_{\tau}(\Wstar)} .
+\label{eq:core}
+\end{equation}
+Here $\Ephys$ denotes the internally observed physical appearance, $\Wstar$ denotes a stable relation matrix, and $P_{\tau}$ denotes an internal-time projection or conditioning map. In a more explicit selection form,
+\begin{equation}
+\boxed{\Wstar=\argmin_{W\in \Fix(\mathcal{R})}\Etot[W]} .
+\label{eq:selection}
+\end{equation}
+The symbol $\mathcal{R}$ denotes a renormalization, consistency, or self-reproduction map, and $\Fix(\mathcal{R})$ denotes the set of relation matrices that are stable under it. Equation \eqref{eq:selection} should not be read as an external agent selecting a universe. It is used as a compact variational/computational rule: among internally stable candidate matrices, those with lower inconsistency functional are more physical-like candidates.
+
+The functional is decomposed schematically as
+\begin{equation}
+\Etot[W]=
+\Delta_{\rm clock}[W]+
+\Delta_{\rm geom}[W]+
+\Delta_{\rm spec}[W]+
+\Delta_{\rm anom}[W]+
+\Delta_{\rm class}[W]+
+\Delta_{\rm comp}[W] .
+\label{eq:total_loss}
+\end{equation}
+Each term is a model-dependent penalty: internal-clock inconsistency, geometric non-classicality, spectral instability, anomaly-like obstruction, failure of a low-energy classical limit, and excessive complexity. In the present paper these terms are not yet universal functionals over all possible relation matrices. They define a closed finite candidate model.
+
+\section{Conceptual dictionary}
+Table \ref{tab:dictionary} records the controlled dictionary used in the framework. These are definitions and interpretation rules, not experimental derivations.
+
+\begin{longtable}{p{0.17\linewidth}p{0.43\linewidth}p{0.28\linewidth}}
+\caption{B-HIG concept dictionary. The examples are illustrative rather than derivational.}\label{tab:dictionary}\\
+\toprule
+\textbf{Concept} & \textbf{B-HIG interpretation} & \textbf{Familiar example}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Concept} & \textbf{B-HIG interpretation} & \textbf{Familiar example}\\
+\midrule
+\endhead
+State & Primitive node before an emergent spatial description. & Atomic level, spin state.\\
+Relation & Binding, transition, similarity, or correlation strength between states. & Interaction, bond, quantum correlation.\\
+Space & Geometric appearance of relation strength. & Nearness and distance.\\
+Time & Conditional ordering with respect to a good internal clock sector. & Atomic clock, regular oscillator.\\
+Energy & Cost of mismatch or tension between strongly related states. & Stretched spring, field energy.\\
+Mass & Spectral gap or localization resistance of a stable mode. & Electron/proton rest mass.\\
+Speed of light & Universal conversion ratio between an internal-clock scale and an emergent relation-space scale. & Vacuum speed of light.\\
+Particle & Stable spectral mode on $\Wstar$. & Electron, photon, quark.\\
+Fermion & Graded or anti-commutative representation mode in a suitable extension. & Electron, neutrino, quark.\\
+Gravity & Curvature or deformation of relation geometry due to energy-stress modes. & Planetary gravity, lensing.\\
+3D space & Effective large-scale dimension of the relational geometry. & Width, length, height.\\
+Three families & Three stable family modes or a minimal nontrivial family phase sector. & Electron--muon--tau.\\
+\bottomrule
+\end{longtable}
+
+\section{Geometry from relation strength}
+In the simplest direct form, a relation weight is mapped to an effective link length by
+\begin{equation}
+\boxed{\ell_{ij}=-\ell_0\ln\left(\frac{W_{ij}^{\ast}}{W_0}\right)} .
+\label{eq:link_length}
+\end{equation}
+Strong relation corresponds to short effective distance, and weak relation corresponds to long effective distance. For a graph-like relation network, the operational distance should normally be the shortest relational path,
+\begin{equation}
+\boxed{d(i,j)=\min_{\gamma:i\to j}\sum_{(a,b)\in\gamma}\ell_{ab}} .
+\label{eq:geodesic}
+\end{equation}
+The effective dimension can be estimated from growth of relational balls,
+\begin{equation}
+N(r)\sim r^{d_{\rm eff}}, \qquad
+\boxed{d_{\rm eff}=\frac{d\ln N(r)}{d\ln r}} .
+\label{eq:dimension_growth}
+\end{equation}
+A separate spectral estimate may be obtained from heat-kernel return probability. If $L$ is a Laplacian-like operator and $P(\sigma)$ is the return probability at diffusion scale $\sigma$, then
+\begin{equation}
+\boxed{d_s(\sigma)=-2\frac{d\ln P(\sigma)}{d\ln\sigma}} .
+\label{eq:spectral_dimension}
+\end{equation}
+This formula is used as a diagnostic, not as a proof that a continuum manifold has been obtained. Obtaining a Lorentzian manifold-like limit is a major open problem, as in other discrete approaches to quantum gravity \cite{Bombelli1987,Ambjorn2005}.
+
+\section{Internal clock and conditional time}
+Let the total Hilbert space admit a clock-system split,
+\begin{equation}
+\mathcal{H}_{\rm total}=\mathcal{H}_{\rm clock}\otimes\mathcal{H}_{\rm system},
+\end{equation}
+with a global state $|\Xi\rangle$. The conditional state relative to an internal clock reading $\tau$ is
+\begin{equation}
+\boxed{|\Gamma(\tau)\rangle=\langle\tau|\Xi\rangle} .
+\label{eq:internal_time}
+\end{equation}
+This follows the conceptual family of internal-time/correlational approaches \cite{PageWootters1983}. In \BHIG{}, the internal clock is not assumed to be arbitrary. A good clock sector should minimize a clock penalty such as
+\begin{equation}
+\Delta_{\rm clock}=\Delta_{\rm monotonicity}+\Delta_{\rm decoherence}+\Delta_{\rm recurrency}+\Delta_{\rm synchronization},
+\end{equation}
+where each term must be specified in a concrete model.
+
+\section{Energy, Laplacian and stable modes}
+A central finite-model energy is
+\begin{equation}
+\boxed{E(\psi)=\frac{1}{2}\sum_{i,j}W_{ij}|\psi_i-\psi_j|^2} .
+\label{eq:energy}
+\end{equation}
+Let
+\begin{equation}
+D_{ii}=\sum_j W_{ij}, \qquad \boxed{L=D-W} .
+\label{eq:laplacian}
+\end{equation}
+Then
+\begin{equation}
+\boxed{E(\psi)=\langle \psi|L|\psi\rangle}
+\end{equation}
+for real symmetric or Hermitian $W$ in the appropriate inner product. The spectrum
+\begin{equation}
+\boxed{L\phi_n=\lambda_n\phi_n}
+\label{eq:spectrum}
+\end{equation}
+provides natural relational modes. Gapless low modes may be interpreted as long-range propagation candidates, while gapped stable modes may be interpreted as mass-like excitations. A mass-like dispersion template is
+\begin{equation}
+\boxed{\omega_n^2=m^2+c^2\lambda_n} .
+\label{eq:massive_dispersion}
+\end{equation}
+For a gapless mode,
+\begin{equation}
+\boxed{m=0, \qquad \omega_n^2=c^2\lambda_n} .
+\end{equation}
+These equations are model definitions. Matching them to continuum QFT requires additional limits and symmetry arguments \cite{PeskinSchroeder1995}.
+
+\section{A closed finite selection model}
+The present finite model parameterizes candidate relation structures by an effective spatial dimension $d$ and a family/internal mode count $Q$. The candidate class is not universal; it is a deliberately restricted class intended for testing structural consistency.
+
+The simplified objective used in the technical draft is
+\begin{equation}
+\boxed{
+\Etot(d,Q)=3\Delta_{d_s}^2+4\Delta_{\rm force}^2+3\Delta_{\gamma}^2+8\Delta_{\rm phase}^2+C(d,Q)
+} .
+\label{eq:finite_loss}
+\end{equation}
+A typical assignment is shown in Table \ref{tab:loss_terms}. The numerical coefficients are not fundamental constants; they encode the relative priority of target constraints inside this finite candidate study.
+
+\begin{table}[ht]
+\centering
+\caption{Loss terms in the closed finite candidate model.}
+\label{tab:loss_terms}
+\begin{tabular}{p{0.23\linewidth}p{0.47\linewidth}p{0.20\linewidth}}
+\toprule
+\textbf{Term} & \textbf{Role} & \textbf{Target}\\
+\midrule
+$\Delta_{d_s}$ & Penalizes mismatch between effective/spectral dimension and the intended low-energy spatial dimension. & $d_s\approx 3$\\
+$\Delta_{\rm force}$ & Penalizes failure of inverse-square behavior in a three-dimensional large-scale limit. & $F\sim r^{-2}$\\
+$\Delta_{\gamma}$ & Penalizes mismatch in transverse photon polarization counting. & $N_{\rm pol}=d-1=2$\\
+$\Delta_{\rm phase}$ & Rewards the possibility of a nontrivial family phase sector. & $N_{\rm phase}\geq1$\\
+$C(d,Q)$ & Penalizes unnecessary dimension/family complexity. & minimal adequate model\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For family phases the model uses
+\begin{equation}
+\boxed{N_{\rm phase}(Q)=\frac{(Q-1)(Q-2)}{2}} .
+\label{eq:phase_count}
+\end{equation}
+Thus the first nontrivial complex family phase occurs at $Q=3$. If the phase term is removed or strongly suppressed, the simplified objective tends to favor smaller $Q$. Therefore the statement $Q=3$ is not a theorem of all relation matrices; it is a result conditional on the finite objective and on the inclusion of the family-phase criterion.
+
+\section{Model-status table}
+Table \ref{tab:status} summarizes which claims are definitions, finite-model results, and open derivations. This table is included to prevent overstatement.
+
+\begin{longtable}{p{0.28\linewidth}p{0.30\linewidth}p{0.31\linewidth}}
+\caption{Current status of major B-HIG components.}\label{tab:status}\\
+\toprule
+\textbf{Item} & \textbf{Model-level result} & \textbf{Status}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Item} & \textbf{Model-level result} & \textbf{Status}\\
+\midrule
+\endhead
+Finite-model minimum & $(d,Q)=(3,3)$ & Satisfied within the selected finite candidate class.\\
+$N\to\infty$ family of candidates & $W^{(\infty)}_{3,3}$ as a formal limit target & Defined as a limit program; not a full proof over all $W$.\\
+Effective dimension & $d_{\rm eff}\approx 3$ & Targeted by loss terms; numerical verification required per candidate.\\
+Family mode & $Q=3$ & Conditional on the family-phase principle.\\
+Dirac-kernel dimension & $\dim\ker D=3$ in minimal constructions & Model-level condition; full operator construction required.\\
+Photon mode & $m_\gamma=0$, $N_{\rm pol}=2$ & Targeted in minimal counting; gauge construction remains needed.\\
+Newton/Coulomb behavior & $F\sim 1/r^2$ in a 3D limit & A consistency target, not yet a universal derivation.\\
+Lorentz limit & emergent causal cone & Open derivation.\\
+Einstein/Regge limit & curvature-stress relation & Open derivation.\\
+Yukawa/mass values & family-overlap ansatz & Calibration and independent prediction not yet achieved.\\
+\bottomrule
+\end{longtable}
+
+\section{Relativistic interpretation}
+A relational light-speed scale may be introduced as
+\begin{equation}
+\boxed{c_{\rm B\text{-}HIG}=\frac{\ell_0}{\tau_0}} .
+\label{eq:c_scale}
+\end{equation}
+This is not a claim that a Lorentz metric has been derived. It is a scale relation: an internal-clock unit $\tau_0$ and a relation-length unit $\ell_0$ define a maximal propagation candidate in a low-energy projection.
+
+A B-HIG analogue of curvature-stress coupling may be written schematically as
+\begin{equation}
+\boxed{
+\mathcal{R}_{\rm B\text{-}HIG}(\Wstar|\tau)=
+\frac{8\pi G_{\rm B\text{-}HIG}}{c_{\rm B\text{-}HIG}^{4}}
+\mathcal{T}_{\rm B\text{-}HIG}(\Wstar,\Psi|\tau)
+} .
+\label{eq:relational_einstein}
+\end{equation}
+This is a research target inspired by the Einstein field equations \cite{Einstein1915} and by Regge's coordinate-free discretization of curvature \cite{Regge1961}. It should be read as a schematic correspondence, not yet as a completed derivation of general relativity.
+
+A necessary future step is to define a Lorentzian metric $g_{\mu\nu}^{\rm eff}$ or a causal-cone structure from $W$, then show that variations of a relational action reduce to an Einstein/Regge-type equation in an appropriate continuum limit.
+
+\section{Mass-energy and inertia}
+Within the interpretation, mass is associated with a spectral gap or localization resistance. The familiar mass-energy relation is represented as
+\begin{equation}
+\boxed{E_{\rm B\text{-}HIG}=m_{\rm B\text{-}HIG}c_{\rm B\text{-}HIG}^2} .
+\label{eq:mass_energy}
+\end{equation}
+This equation is not presented as a new derivation of Einstein's relation \cite{Einstein1905}; rather, it is the B-HIG interpretation of the same low-energy relation: mass and energy are two internal-time appearances of a stable state--relation mode. Inertia may be modeled as resistance of a stable relational pattern to changes in its projection flow,
+\begin{equation}
+\boxed{F_{\rm rel}=m_{\rm B\text{-}HIG}a_{\tau}} ,
+\end{equation}
+where $a_\tau$ is acceleration with respect to the internal clock parameter in the effective projection.
+
+\section{Flavor and Yukawa sector}
+A finite family ansatz used in the computational package is
+\begin{equation}
+\boxed{
+Y_{ij}^{(f)}[\Wstar]=C_{ij}^{(f)}\lambda_{\rm B\text{-}HIG}^{q_{L,i}^{(f)}+q_{R,j}^{(f)}}e^{i\phi_{ij}^{(f)}}
+} .
+\label{eq:yukawa}
+\end{equation}
+Here $\lambda_{\rm B\text{-}HIG}$ is a family-overlap scale, $q_{L/R}$ are family charges or localization indices, $C_{ij}^{(f)}$ are order-one coefficients, and $\phi_{ij}^{(f)}$ are phase/holonomy variables. The numerical value
+\begin{equation}
+\lambda_{\rm B\text{-}HIG}\approx 0.225
+\end{equation}
+was used as a Cabibbo-like scale in the draft model, but it is not yet independently predicted. It is a phenomenological input.
+
+The diagonal mass template is
+\begin{equation}
+\boxed{M_f=\frac{v}{\sqrt{2}}Y_f[\Wstar]} .
+\label{eq:mass_matrix}
+\end{equation}
+Mixing matrices are interpreted as relative alignment matrices,
+\begin{equation}
+\boxed{V_{\rm CKM}=U_u^{\dagger}[\Wstar]U_d[\Wstar]},\qquad
+\boxed{U_{\rm PMNS}=U_\ell^{\dagger}[\Wstar]U_\nu[\Wstar]} .
+\label{eq:mixing}
+\end{equation}
+This matches the structural form of flavor mixing in the Standard Model, but it does not yet constitute an independent derivation of observed masses and mixing parameters. Values should be compared with the Particle Data Group tables \cite{PDG2024}; fundamental constants should be compared with CODATA/NIST recommendations \cite{NISTCODATA}.
+
+\begin{table}[ht]
+\centering
+\caption{Illustrative family-charge assignments used in the finite B-HIG flavor prototype.}
+\label{tab:flavor}
+\begin{tabular}{p{0.27\linewidth}p{0.30\linewidth}p{0.30\linewidth}}
+\toprule
+\textbf{Sector} & \textbf{Assignment} & \textbf{Purpose}\\
+\midrule
+Left quark family & $q_Q=(3.5,2.5,0)$ & Generates hierarchical CKM-like scaling.\\
+Right up-type & $q_{u_R}=(4,1,0)$ & Produces $u,c,t$ hierarchy in powers of $\lambda$.\\
+Right down-type & $q_{d_R}=(3.5,2.5,2.5)$ & Produces $d,s,b$ hierarchy in powers of $\lambda$.\\
+Left lepton family & $q_L^\ell=(0,0,0)$ & Allows large PMNS-like mixing.\\
+Right charged lepton & $q_{e_R}=(8.5,5,3)$ & Produces $e,\mu,\tau$ hierarchy in powers of $\lambda$.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Computational prototype}
+The public package associated with this draft implements a finite real-valued $W$ model with state labels
+\begin{equation}
+\boxed{s=(x,y,z,f,\chi)} .
+\label{eq:state_label}
+\end{equation}
+Here $x,y,z$ are sites of a finite three-dimensional torus, $f$ is a family index, and $\chi$ is a chirality label. A minimal relation kernel is
+\begin{equation}
+\boxed{
+W_{ab}=\exp\left[-\frac{d_{\rm geo}(a,b)}{\xi_{\rm geo}}\right]
+\lambda_{\rm B\text{-}HIG}^{|f_a-f_b|}
+W_{\rm chiral}(a,b)
+} .
+\label{eq:kernel}
+\end{equation}
+This kernel is a prototype, not a final physical interaction. It demonstrates how geometry, family proximity, and chirality/Higgs-like coupling can be placed in a single computable matrix. The code and archived research package are available in the repository and Zenodo release \cite{Bolat2026GitHub,Bolat2026Zenodo}.
+
+\section{Testable directions}
+A controlled research program should aim to generate falsifiable or at least numerically discriminating predictions. Candidate directions include:
+\begin{align}
+\boxed{v_\gamma(E)=c\left[1-\eta_\gamma\left(\frac{E}{E_{\rm B\text{-}HIG}}\right)^p\right]} ,\label{eq:dispersion}\\
+\boxed{d_s(E)=3-\eta_s\left(\frac{E}{E_{\rm B\text{-}HIG}}\right)^p} ,\label{eq:ds_flow}\\
+\boxed{\Delta\phi_{\rm clock}\sim \zeta\left(\frac{E}{E_{\rm B\text{-}HIG}}\right)^p\frac{T}{T_{\rm B\text{-}HIG}}} .\label{eq:clock_noise}
+\end{align}
+Equations \eqref{eq:dispersion}--\eqref{eq:clock_noise} are not predictions with fixed coefficients yet. They are parameterized templates that specify where the framework might become empirically constrained.
+
+\section{Limitations}
+The main limitations are as follows.
+\begin{enumerate}[label=(\roman*)]
+\item The full space of relation matrices is not classified. Results are conditional on a restricted finite candidate class.
+\item The internal clock map $P_\tau$ is defined formally, but a universal construction of good clock sectors is not complete.
+\item Lorentz invariance is an intended low-energy property, not yet derived from first principles.
+\item The Einstein/Regge limit remains a research target.
+\item The flavor ansatz represents observed hierarchies with few parameters but does not yet independently predict the Yukawa matrices.
+\item Metaphysical interpretations are not part of the testable physical core.
+\end{enumerate}
+
+\section{Conclusion}
+\BHIG{} provides a finite relational-matrix framework in which space, time, energy, mass, and family structure can be expressed using a common language. The core expression
+\[
+\boxed{\Ephys=P_{\tau}(\Wstar)}
+\]
+is a compact way to state the proposal: the observed physical universe is modeled as an internal-time projection of a stable relation matrix. A finite selection functional can be constructed so that $d=3$ and $Q=3$ arise inside the chosen candidate class, but this should be interpreted as a model-level result rather than a theorem about nature. The framework becomes scientifically relevant only insofar as it yields clear continuum limits, controlled simulations, and falsifiable parameterized deviations from established physics. The present manuscript is therefore best viewed as an arXiv-style technical formulation of a research program.
+
+\section*{Data and code availability}
+The public research package, source code prototype, and archived DOI are available at:
+\begin{itemize}
+\item GitHub: \url{https://github.com/mbmustafabolat-hue/BHIG}
+\item Zenodo DOI: \url{https://doi.org/10.5281/zenodo.20582146}
+\item OSF project: \url{https://osf.io/xmdea/}
+\end{itemize}
+
+\section*{Acknowledgment of status}
+This manuscript is a theoretical proposal and computational framework draft. It should not be cited as an experimentally confirmed theory of physics.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Einstein1905}
+A. Einstein, ``Zur Elektrodynamik bewegter Koerper,'' \emph{Annalen der Physik} \textbf{322}(10), 891--921 (1905).
+
+\bibitem{Einstein1915}
+A. Einstein, ``Die Feldgleichungen der Gravitation,'' \emph{Sitzungsberichte der Preussischen Akademie der Wissenschaften zu Berlin}, 844--847 (1915).
+
+\bibitem{Regge1961}
+T. Regge, ``General Relativity Without Coordinates,'' \emph{Il Nuovo Cimento} \textbf{19}, 558--571 (1961).
+
+\bibitem{PageWootters1983}
+D. N. Page and W. K. Wootters, ``Evolution without evolution: Dynamics described by stationary observables,'' \emph{Physical Review D} \textbf{27}, 2885--2892 (1983).
+
+\bibitem{Bombelli1987}
+L. Bombelli, J. Lee, D. Meyer and R. D. Sorkin, ``Space-time as a causal set,'' \emph{Physical Review Letters} \textbf{59}, 521--524 (1987).
+
+\bibitem{Ambjorn2005}
+J. Ambjorn, J. Jurkiewicz and R. Loll, ``Reconstructing the Universe,'' \emph{Physical Review D} \textbf{72}, 064014 (2005).
+
+\bibitem{Rovelli2004}
+C. Rovelli, \emph{Quantum Gravity}, Cambridge University Press (2004).
+
+\bibitem{Nakahara2003}
+M. Nakahara, \emph{Geometry, Topology and Physics}, 2nd ed., Institute of Physics Publishing (2003).
+
+\bibitem{Wilson1974}
+K. G. Wilson, ``Confinement of quarks,'' \emph{Physical Review D} \textbf{10}, 2445--2459 (1974).
+
+\bibitem{GinspargWilson1982}
+P. H. Ginsparg and K. G. Wilson, ``A remnant of chiral symmetry on the lattice,'' \emph{Physical Review D} \textbf{25}, 2649--2657 (1982).
+
+\bibitem{NielsenNinomiya1981}
+H. B. Nielsen and M. Ninomiya, ``Absence of neutrinos on a lattice: Proof by homotopy theory,'' \emph{Nuclear Physics B} \textbf{185}, 20--40 (1981).
+
+\bibitem{PeskinSchroeder1995}
+M. E. Peskin and D. V. Schroeder, \emph{An Introduction to Quantum Field Theory}, Westview Press (1995).
+
+\bibitem{AtiyahSinger1963}
+M. F. Atiyah and I. M. Singer, ``The Index of Elliptic Operators on Compact Manifolds,'' \emph{Bulletin of the American Mathematical Society} \textbf{69}, 422--433 (1963).
+
+\bibitem{PDG2024}
+Particle Data Group, \emph{Review of Particle Physics}, online review tables and summaries (2024).
+
+\bibitem{NISTCODATA}
+NIST, \emph{CODATA recommended values of the fundamental physical constants}, National Institute of Standards and Technology (2022).
+
+\bibitem{Bolat2026Zenodo}
+M. Bolat, \emph{Bolat Hal-Iliski Geometrodynamics (B-HIG): Relational Spacetime Research Package}, Zenodo (2026), doi:10.5281/zenodo.20582146.
+
+\bibitem{Bolat2026GitHub}
+M. Bolat, \emph{BHIG: Bolat Hal-Iliski Geometrodynamics Repository}, GitHub repository (2026), \url{https://github.com/mbmustafabolat-hue/BHIG}.
+
+\end{thebibliography}
+
+\end{document}
