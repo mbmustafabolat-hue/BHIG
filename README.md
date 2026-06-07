@@ -67,3 +67,11 @@ Bolat, M. (2026). Bolat Hâl-İlişki Geometrodinamiği (B-HİG): İlişkisel Uz
 }
 
 Bu çalışma için `CITATION.cff` dosyasını kullanabilirsiniz.
+
+## Public Archive and Open Project
+
+- GitHub Repository: https://github.com/mbmustafabolat-hue/BHIG
+- Zenodo DOI: https://doi.org/10.5281/zenodo.20582146
+- OSF Project: https://osf.io/xmdea/
+
+Scientific status: B-HİG is presented as a theoretical research framework and computational model candidate, not as an established physical theory.
