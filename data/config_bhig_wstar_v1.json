@@ -1,0 +1,7 @@
+{
+  "L": 4,
+  "Q": 3,
+  "lambda_family": 0.22501,
+  "state": "s=(x,y,z,f,chi)",
+  "relation": "W_ab=exp[-d_geo/xi_geo]*lambda^|f_a-f_b|*W_chiral"
+}

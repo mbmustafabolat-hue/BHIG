@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Bolat Hâl-İlişki Geometrodinamiği (B-HİG)"
+message: "B-HİG araştırma paketi için lütfen bu kaydı kullanarak atıf yapın."
+type: software
+authors:
+  - family-names: "BOLAT"
+    given-names: "Mustafa"
+version: "1.0.0"
+date-released: "2026-06-06"
+license: "MIT"
+repository-code: "https://github.com/<kullanici>/BHIG"
+abstract: "İlişkisel Oluş Yorumu üzerine kurulu B-HİG teori adayı ve W* hesap modeli v1."
