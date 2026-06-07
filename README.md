@@ -75,3 +75,9 @@ Bu çalışma için `CITATION.cff` dosyasını kullanabilirsiniz.
 - OSF Project: https://osf.io/xmdea/
 
 Scientific status: B-HİG is presented as a theoretical research framework and computational model candidate, not as an established physical theory.
+
+## arXiv Status
+
+An arXiv-ready technical manuscript has been prepared, but arXiv submission is currently deferred because the account requires endorsement for the selected category.
+
+The manuscript is still publicly available through this repository, OSF, and Zenodo.
