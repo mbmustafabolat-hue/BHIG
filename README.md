@@ -1,3 +1,11 @@
+# B-HİG — Bolat Hâl-İlişki Geometrodinamiği
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20582146.svg)](https://doi.org/10.5281/zenodo.20582146)
+
+> Scientific status: This repository presents B-HİG as a theoretical research framework and computational model candidate, not as an established physical theory.
+
+> Bilimsel statü: Bu depo, B-HİG’i kanıtlanmış bir fizik teorisi olarak değil; teorik araştırma çerçevesi ve hesaplanabilir model adayı olarak sunar.
+
 # Bolat Hâl-İlişki Geometrodinamiği (B-HİG)
 
 **B-HİG**, İlişkisel Oluş Yorumu üzerine kurulu bir teori adayıdır. Temel fikir: fiziksel evren, kararlı hâller-arası ilişki matrisi `W*`nin iyi iç saat altında görünen projeksiyonudur.
