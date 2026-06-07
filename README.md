@@ -54,5 +54,6 @@ figures/
 - `src/bhig_wstar_model.py`
 
 ## Atıf
+Bolat, M. (2026). Bolat Hâl-İlişki Geometrodinamiği (B-HİG): İlişkisel Uzay-Zaman İçin Teorik ve Hesaplanabilir Araştırma Çerçevesi (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20582146
 
 Bu çalışma için `CITATION.cff` dosyasını kullanabilirsiniz.
